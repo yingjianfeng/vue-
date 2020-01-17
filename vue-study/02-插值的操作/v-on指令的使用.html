@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app" v-on:click="log">
+    点击我
+</div>
+<script src="../js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+    
+    },
+    methods: {
+      log: function () {
+        console.log("点击我");
+      }
+    }
+  })
+</script>
+</body>
+</html>

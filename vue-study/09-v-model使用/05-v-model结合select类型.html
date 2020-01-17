@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--单选-->
+    <select name="abc" v-model="fruit">
+      <option value="苹果">苹果</option>
+      <option value="香蕉">香蕉</option>
+      <option value="榴莲">榴莲</option>
+      <option value="葡萄">葡萄</option>
+    </select>
+  <h2>你选择的水果是：{{fruit}}</h2>
+  
+  <!--单选-->
+    <select name="abc" v-model="fruits" multiple>
+      <option value="苹果">苹果</option>
+      <option value="香蕉">香蕉</option>
+      <option value="榴莲">榴莲</option>
+      <option value="葡萄">葡萄</option>
+    </select>
+  <h2>你选择的水果是：{{fruits}}</h2>
+  
+  <label v-for="item in origin" :for="item">
+    <input type="checkbox" :value="item" :id="item" v-model="fruits">{{item}}
+  </label>
+</div>
+<script src="../js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      fruit: '苹果',
+      fruits: [],
+      origin: ['篮球','足球','乒乓球','羽毛球','高尔夫球']
+    }
+  })
+</script>
+</body>
+</html>
+
+
+<!--
+单选：只能选中一个值
+  v-model绑定的是一个值
+  当我们选中option中的一个时，会将它对应的value赋值到fruit中
+多选：可以选中多个值
+  v-model绑定的是一个数组
+  当选中多个值时，就会将选中的option对应的value添加到数组myselects中-->

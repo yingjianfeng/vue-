@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../vue-study/js/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+    {{info}}
+</div>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data () {
+      return {
+        info: null
+      }
+    },
+    mounted () {
+      axios
+        .get('https://api.coindesk.com/v1/bpi/currentprice.json',{       // 还可以直接把参数拼接在url后边
+          params:{
+            title:'眼镜'
+          }
+        })
+        .then(response => (this.info = response))
+    }
+  })
+</script>
+</body>
+</html>

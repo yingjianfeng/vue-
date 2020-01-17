@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2 :style="[base1,base2]">你好啊</h2>
+</div>
+<script src="../js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      base1: {backgroundColor: 'red'},
+      base2: {fontSize: '150px'}
+    }
+    
+  })
+</script>
+</body>
+</html>

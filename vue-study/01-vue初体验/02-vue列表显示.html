@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h3>{{message}}</h3>
+    <ul>
+        <li v-for="(item,index) in movies">
+           {{index}}: {{item}}
+        </li>
+    </ul>
+    <!--<h3>{{message}}</h3>-->
+    <!--<ul>-->
+        <!--<li>{{movies[0]}}</li>-->
+        <!--<li>{{movies[0]}}</li>-->
+        <!--<li>{{movies[0]}}</li>-->
+    <!--</ul>-->
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'vue案例',
+           movies: ['星际穿越','大话西游','少年派','盗梦空间']
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .red{
+      color: red;
+    }
+    .hover{
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <li v-for="(item,index) in movies" v-bind:class="{c1:index==0,c2:index!=0}">{{index}}-{{item}}</li>
+</div>
+<script src="../vue-study/js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    methods: {
+      red: function () {
+      
+      }
+    },
+    data: {
+      c1: 'red',
+      c2: 'hover',
+      movies: ['蓝精灵','舒克贝塔','黑猫警长','火影忍者']
+    }
+  })
+</script>
+</body>
+</html>

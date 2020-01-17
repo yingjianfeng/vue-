@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <table border="1">
+      <tr>
+        <td v-for="title in titles">{{title}}</td>
+      </tr>
+      <tr v-for="(car,id) in cars">
+        <td >{{id+1}}</td>
+        <td v-for="info in car">{{info}}</td>
+        <td v-on:click="remove(id)">删除</td>
+      </tr>
+    </table>
+  <br>
+  <input type="text" placeholder="输入车名" v-model="name"><br/>
+  <input type="date" placeholder="输入日期" v-model="date"><br/>
+  <button v-on:click="add">添加</button>
+</div>
+<script src="../vue-study/js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      name: '',
+      date: '',
+      titles: ['编号','品牌名称','创建时间','操作'],
+      cars: [
+        {name: '宝马',date: '2017-12-27'},
+        {name: '奔驰',date: '2017-12-28'},
+        {name: '奥迪',date: '2017-12-29'}
+      ]
+    },
+    methods: {
+      remove(id){
+        // console.log(id);
+        this.cars.splice(id,1)
+      },
+      add(){
+        this.cars.push({
+          name:this.name,
+          date:this.date
+        });
+        this.name = '';
+        this.date = '';
+      }
+    }
+  })
+</script>
+</body>
+</html>

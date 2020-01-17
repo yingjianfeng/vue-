@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--<h2 :style="{fontSize:'100px'}">你好啊</h2>-->
+    <!--<h2 :style="{fontSize:size+'px'}">你好啊</h2>-->
+    <!--<h2 :style="{fontSize:size+'px',color:c}">你好啊</h2>-->
+    <h2 :style="getStyles()">你好啊</h2>
+  <p>{{getStyles()}}</p>
+</div>
+<script src="../js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      size: 70,
+      c: 'red'
+    },
+    methods: {
+      getStyles:function () {
+        return {fontSize:this.size+'px',color:this.c};
+      }
+    }
+  })
+</script>
+</body>
+</html>

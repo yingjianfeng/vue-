@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app" >
+    <h3 v-for="i in message">{{i }}</h3>
+  </div>
+<script src="../js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: ['礼拜一','礼拜二','礼拜三','礼拜四']
+    }
+  })
+</script>
+</body>
+</html>

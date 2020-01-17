@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn v-bind:cmovies="movies" :cmessage="message"></cpn>
+  <!--<cpn cmovies="movies" cmessage="message"></cpn>-->
+</div>
+
+<template id="cpn">
+  <div>
+    <p>{{cmovies}}</p>
+    <h2>{{cmessage}}</h2>
+  </div>
+</template>
+
+<script src="../js/vue.js">
+</script>
+<script>
+  const cpn={
+    template:'#cpn',
+    props: ['cmovies','cmessage'],
+    data(){
+      return{}
+    }
+  }
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好',
+      movies: ['海王','海贼王','海尔兄弟']
+    },
+    components: {
+      cpn
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--v-show 条件不满足时  css属性dispaly 为none-->
+<div id="app" v-show="message==null">
+    {{message}}
+</div>
+<script src="../js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    }
+  })
+</script>
+</body>
+</html>

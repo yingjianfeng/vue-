@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <style type="text/css">
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--使用 v-cloak能够解决插值闪烁问题-->
+    <p v-cloak>{{msg}}</p>
+    <input type="button" v-bind:value="msg" v-on:click="show">
+</div>
+<script type="text/javascript">
+    //VM层
+
+    var vm = new Vue({
+        el:'#app',//表示，当前我们new这个vue的实例，要控制页面上的哪个区域
+        //M层
+        data:{//data属性中存放的是el中要用的数据
+            msg:'欢迎学习Vue'//通过Vue提供的指令，很方便的就能把数据渲染到页面上，程序员不用再操作dom元素了。
+            ,value:'按钮'
+        },
+        methods:{//这个methods属性中定义了当前Vue实例所有可用的方法
+            show: function(){
+                alert("Hello");
+            }
+        }
+    })
+</script>
+</body>
+</html>

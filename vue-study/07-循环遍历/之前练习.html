@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .red{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+    <h5 v-for="(i,x) in books" :class="{ red: currentIndex==x }"
+        @click="clickme(x)">
+      {{x}}:{{i}}
+    </h5>
+</div>
+<script src="../js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      books: ['美丽神话','小熊的故事','叮当猫','海底两万里'],
+      currentIndex: 0
+    },
+    methods: {
+      clickme(x) {
+        this.currentIndex=x
+      }
+    }
+  })
+</script>
+</body>
+</html>

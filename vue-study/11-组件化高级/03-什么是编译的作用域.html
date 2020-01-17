@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn v-show="isshow">
+    <span slot="center">aaa</span>
+  </cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <slot name="left"><span>左边</span></slot>
+  </div>
+</template>
+<script src="../js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      isshow: true
+    },
+    components: {
+      cpn: {
+        template: '#cpn'
+      },
+      data(){
+        return {
+          isshow: false
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

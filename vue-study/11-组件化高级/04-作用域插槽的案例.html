@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<cpn></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <ul>
+      <li v-for="item in planguage">{{item}}</li>
+    </ul>
+  </div>
+</template>
+<script src="../js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components: {
+      cpn: {
+        template: '#cpn',
+        data(){
+          return {
+            planguage: ['js','java','c++','c#']
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

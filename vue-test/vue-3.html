@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app" @click.left="test">
+123
+</div>
+<script src="../vue-study/js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    methods :{
+      test: function () {
+        console.log("left")
+      }
+    }
+  })
+</script>
+</body>
+</html>

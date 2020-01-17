@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+</div>
+<div id="app2">
+  <cpn></cpn>
+</div>
+
+<script src="../js/vue.js">
+</script>
+<script>
+  const cpnC = Vue.extend({
+    template: `
+      <div>
+        <h2>标题</h2>
+        <p>内容222222</p>
+      </div>
+    `
+  })
+  /*全局组件 可以在多个vue实例下使用*/
+  /*Vue.component('cpn',cpnC)*/
+  
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    /*局部注册*/
+    components: {
+      cpn:cpnC
+    }
+  })
+  const app2 = new Vue({
+    el: '#app2',
+  })
+</script>
+</body>
+</html>

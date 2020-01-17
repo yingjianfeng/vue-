@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    td{
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+   <table>
+     <tr>
+       <td>编号</td>
+       <td>书名</td>
+       <td>单价</td>
+       <td>数量</td>
+       <td>操作</td>
+       <td>删除</td>
+     </tr>
+     <tr v-for="(item,index) in books">
+       <td v-for="i in item">
+         {{i}}
+       </td>
+       <td>
+         <button @click="del(item)">-</button>
+         <button @click="add(item)">+</button>
+       </td>
+       <td>
+         <button @click="rem(index)">删除</button>
+       </td>
+     </tr>
+   </table>
+  <div>
+    <h3 v-if="books.length>0">总价格:{{total | abou}}</h3>
+    <h3 v-else>没有物品</h3>
+  </div>
+</div>
+<script src="../js/vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      books:[
+        {id:111,name:'海底两万里',price:'39.94',number:1},
+        {id:222,name:'小熊的故事',price:'49.9',number:1},
+        {id:333,name:'大熊猫',price:'99.0',number:1},
+      ]
+    },
+    computed:{
+      total(){
+        let price = 0;
+        for(let i=0; i<this.books.length; i++){
+          price+=this.books[i].number*this.books[i].price;
+        }
+        console.log(price);
+        return price;
+      }
+    },
+    methods: {p
+      del(item){
+        item.number--;
+      },
+      add(item){
+        item.number++;
+      },
+      rem(index){
+        this.books.splice(index,1)
+      },
+      abou(price){
+        price = price.toFixed(2);
+      }
+    }
+  })
+</script>
+</body>
+</html>
